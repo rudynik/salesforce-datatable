@@ -1,0 +1,29 @@
+/* Flex */
+.flex {
+    display: flex;
+    width: 100%; /* Garante que o container flex ocupe 100% da largura disponível */
+}
+
+.datatable-container {
+    flex: 7; /* 70% da largura do container */
+    padding: 10px;
+    overflow: hidden; /* Garante que o conteúdo não saia do container */
+}
+
+.test-container {
+    flex: 3; /* 30% da largura do container */
+    padding: 10px;
+    overflow: hidden; /* Garante que o conteúdo não saia do container */
+}
+
+/* Flex Item */
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    display: flex;
+}
+
+.lightning-datatable {
+    width: 100%; /* Garante que o datatable ocupe 100% do espaço disponível em seu container */
+}

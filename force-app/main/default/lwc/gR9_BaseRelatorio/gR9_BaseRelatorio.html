@@ -1,0 +1,16 @@
+<template>
+    <div class="container flex">
+        <div class="datatable-container">
+            <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+                onsort={handleSort}
+                class="lightning-datatable">
+            </lightning-datatable>
+        </div>
+        <div class="test-container">
+            teste
+        </div>
+    </div>
+</template>
