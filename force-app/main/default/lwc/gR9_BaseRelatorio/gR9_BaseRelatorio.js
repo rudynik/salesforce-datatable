@@ -10,7 +10,6 @@ const columns = [
 ];
 
 const data = [
-    // Dados simulados
     { id: 0, name: "Name 0", website: 'www.salesforce.com 0', amount: 10, phone: '1234567890', closeAt: '2024-08-01' },
     { id: 1, name: "Name 1", website: 'www.salesforce.com 1', amount: 20, phone: '1234567891', closeAt: '2024-08-02' },
     // Adicione mais registros conforme necessário

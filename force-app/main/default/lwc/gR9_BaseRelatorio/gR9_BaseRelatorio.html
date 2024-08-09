@@ -5,14 +5,6 @@
             <lightning-icon icon-name="utility:filter" alternative-text="Filter"></lightning-icon>
         </div>
 
-        <!-- Div do filtro que aparece do lado direito -->
-        <div class="filter-overlay">
-            <div class="filter-content">
-                <!-- Conteúdo da div de filtro -->
-                teste
-            </div>
-        </div>
-
         <!-- Contêiner para o datatable -->
         <div class="datatable-container">
             <lightning-datatable
@@ -21,6 +13,14 @@
                 columns={columns}
                 onsort={handleSort}>
             </lightning-datatable>
+        </div>
+
+        <!-- Div do filtro que aparece do lado direito -->
+        <div class="filter-overlay">
+            <div class="filter-content">
+                <!-- Conteúdo da div de filtro -->
+                teste
+            </div>
         </div>
     </div>
 </template>

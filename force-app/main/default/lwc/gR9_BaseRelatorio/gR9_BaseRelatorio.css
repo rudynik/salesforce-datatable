@@ -1,4 +1,4 @@
-/* CSS para posicionar a div de filtro do lado direito da tela */
+/* CSS para a div de filtro que aparece do lado direito da tela */
 .filter-overlay {
     position: fixed; /* Fixa a posição da div na tela */
     top: 0;
