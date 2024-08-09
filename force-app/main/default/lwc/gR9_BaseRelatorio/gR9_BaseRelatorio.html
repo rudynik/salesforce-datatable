@@ -1,16 +1,26 @@
 <template>
-    <div class="container flex">
+    <div class="container">
+        <!-- Botão para ativar o filtro -->
+        <div class="filter-button" onclick={toggleFilter}>
+            <lightning-icon icon-name="utility:filter" alternative-text="Filter"></lightning-icon>
+        </div>
+
+        <!-- Div do filtro que aparece do lado direito -->
+        <div class="filter-overlay">
+            <div class="filter-content">
+                <!-- Conteúdo da div de filtro -->
+                teste
+            </div>
+        </div>
+
+        <!-- Contêiner para o datatable -->
         <div class="datatable-container">
             <lightning-datatable
                 key-field="id"
                 data={data}
                 columns={columns}
-                onsort={handleSort}
-                class="lightning-datatable">
+                onsort={handleSort}>
             </lightning-datatable>
-        </div>
-        <div class="test-container">
-            teste
         </div>
     </div>
 </template>

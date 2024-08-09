@@ -1,29 +1,36 @@
-/* Flex */
-.flex {
+/* CSS para posicionar a div de filtro do lado direito da tela */
+.filter-overlay {
+    position: fixed; /* Fixa a posição da div na tela */
+    top: 0;
+    right: 0; /* Posiciona a div no lado direito da tela */
+    height: 100vh; /* Ocupa toda a altura da tela */
+    width: 30%; /* Ocupa 30% da largura da tela */
+    background-color: white; /* Fundo branco */
+    border-left: 1px solid #ccc; /* Borda esquerda para separar da tabela */
+    z-index: 1000; /* Garante que a div apareça sobre outros elementos */
+    display: none; /* Inicialmente oculta */
+    padding: 10px; /* Adiciona algum padding interno */
+}
+
+/* Classe adicionada quando a div está visível */
+.filter-active {
+    display: block;
+}
+
+.container {
     display: flex;
-    width: 100%; /* Garante que o container flex ocupe 100% da largura disponível */
+    height: 100vh; /* Ocupa toda a altura da tela */
 }
 
 .datatable-container {
-    flex: 7; /* 70% da largura do container */
-    padding: 10px;
-    overflow: hidden; /* Garante que o conteúdo não saia do container */
+    flex: 1; /* Ocupa o restante da largura da tela */
+    position: relative;
 }
 
-.test-container {
-    flex: 3; /* 30% da largura do container */
-    padding: 10px;
-    overflow: hidden; /* Garante que o conteúdo não saia do container */
-}
-
-/* Flex Item */
-.container {
-    max-width: 100%;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    display: flex;
-}
-
-.lightning-datatable {
-    width: 100%; /* Garante que o datatable ocupe 100% do espaço disponível em seu container */
+.filter-button {
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Posiciona o botão no canto superior direito */
+    z-index: 1100; /* Garante que o botão de filtro esteja acima da div */
+    cursor: pointer;
 }
