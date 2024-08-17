@@ -10,44 +10,43 @@ const columns = [
 ];
 
 const data = [
-    { id: 0, name: "Name 0", website: 'www.salesforce.com 0', amount: 10, phone: '1234567890', closeAt: '2024-08-01' },
-    { id: 1, name: "Name 1", website: 'www.salesforce.com 1', amount: 20, phone: '1234567891', closeAt: '2024-08-02' },
-    // Adicione mais registros conforme necessário
+    { id: 0, name: "Name 0", website: 'www.salesforce.com 0', amount: 10, phone: '1234567890', closeAt: '2024-08-01', proprietario: 'miguel' },
+    { id: 1, name: "Name 1", website: 'www.salesforce.com 1', amount: 20, phone: '1234567891', closeAt: '2024-08-02', proprietario: 'heitor' },
 ];
 
 export default class GR9_BaseRelatorio extends LightningElement {
     @track columns = columns;
     @track data = data;
-    @track sortBy;
-    @track sortDirection;
-    @track isFilterActive = false; // Track filter visibility
+    @track isFilterActive = false;
 
-    handleSort(event) {
-        const { fieldName: sortedBy, sortDirection } = event.detail;
-        const cloneData = [...this.data];
-        cloneData.sort(this.sortByField(sortedBy, sortDirection === 'asc' ? 1 : -1));
-        this.data = cloneData;
-        this.sortBy = sortedBy;
-        this.sortDirection = sortDirection;
-    }
-
-    sortByField(field, reverse, primer) {
-        const key = primer 
-            ? function(x) { return primer(x[field]); }
-            : function(x) { return x[field]; };
-
-        return function(a, b) {
-            a = key(a);
-            b = key(b);
-            return reverse * ((a > b) - (b > a));
-        };
-    }
+    clickedButtonLabel;
+    value = 'Todos os registros';
 
     toggleFilter() {
         this.isFilterActive = !this.isFilterActive;
         const filterDiv = this.template.querySelector('.filter-overlay');
         if (filterDiv) {
             filterDiv.classList.toggle('filter-active', this.isFilterActive);
+        }
+    }
+
+    get options() {
+        return [
+            { label: 'Todos os registros', value: 'Todos os registros' },
+            { label: 'Meus registros', value: 'Meus registros' }
+        ];
+    }
+
+    handleChange(event) {
+        this.value = event.detail.value;
+    }
+
+    handleClick(event) {
+        this.clickedButtonLabel = event.target.label;
+        if (this.value == 'Meus registros') {
+            this.data = this.data.filter(element => element.proprietario == 'miguel');
+        } else {
+            this.data = data;
         }
     }
 }

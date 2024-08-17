@@ -1,36 +1,80 @@
-/* CSS para a div de filtro que aparece do lado direito da tela */
 .filter-overlay {
-    position: fixed; /* Fixa a posição da div na tela */
+    position: absolute;
     top: 0;
-    right: 0; /* Posiciona a div no lado direito da tela */
-    height: 100vh; /* Ocupa toda a altura da tela */
-    width: 30%; /* Ocupa 30% da largura da tela */
-    background-color: white; /* Fundo branco */
-    border-left: 1px solid #ccc; /* Borda esquerda para separar da tabela */
-    z-index: 1000; /* Garante que a div apareça sobre outros elementos */
-    display: none; /* Inicialmente oculta */
-    padding: 10px; /* Adiciona algum padding interno */
+    right: 0;
+    height: 100vh;
+    width: 20%;
+    background-color: white;
+    border-left: 1px solid #ccc;
+    z-index: 1000;
+    display: none;
+    padding: 10px;
 }
 
-/* Classe adicionada quando a div está visível */
 .filter-active {
     display: block;
 }
 
 .container {
     display: flex;
-    height: 100vh; /* Ocupa toda a altura da tela */
-}
-
-.datatable-container {
-    flex: 1; /* Ocupa o restante da largura da tela */
+    height: 100%;
     position: relative;
 }
 
-.filter-button {
-    position: absolute;
-    top: 10px;
-    right: 10px; /* Posiciona o botão no canto superior direito */
-    z-index: 1100; /* Garante que o botão de filtro esteja acima da div */
+.datatable-container {
+    flex: 1;
+    position: relative;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #F3F3F3;
+}
+
+.icon-text-container {
+    display: flex;
+    align-items: flex-end;
+}
+
+.titulo-relatorio {
+    margin-top: auto;
+    padding-left: 10px;
+}
+
+.total-records {
+    padding: 10px;
+    border-top: 1px solid #C9C9C9;
+    border-bottom: 1px solid #C9C9C9;
+    background-color: white;
+}
+
+.filter-content {
+    font-size: large;
+    font-weight: 500;
+    color: #747474;
+}
+
+.fixed-filter {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    border-bottom: 1px solid #DDDBDA;
     cursor: pointer;
+    padding-bottom: 10px;
+}
+
+.filter-button {
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.filters {
+    border: 1px solid #DDDBDA;
+    padding: 20px;
+    margin-top: 30px;
 }

@@ -1,25 +1,44 @@
 <template>
-    <div class="container">
-        <!-- Botão para ativar o filtro -->
-        <div class="filter-button" onclick={toggleFilter}>
-            <lightning-icon icon-name="utility:filter" alternative-text="Filter"></lightning-icon>
+    <div class="icon-container">
+        <div class="icon-text-container">
+            <lightning-icon icon-name="standard:report" alternative-text="report"></lightning-icon>
+            <span class="titulo-relatorio">Relatório Contact Report ESG</span>
         </div>
-
-        <!-- Contêiner para o datatable -->
+        <div onclick={toggleFilter}>
+            <lightning-icon icon-name="utility:filterList" alternative-text="filterList" size="small"></lightning-icon>
+        </div>
+    </div>
+    <div class="total-records">
+        Total Records
+        <br />
+        2
+    </div>
+    <div class="container">
         <div class="datatable-container">
-            <lightning-datatable
-                key-field="id"
-                data={data}
-                columns={columns}
-                onsort={handleSort}>
+            <lightning-datatable key-field="id" data={data} columns={columns}>
             </lightning-datatable>
         </div>
-
-        <!-- Div do filtro que aparece do lado direito -->
         <div class="filter-overlay">
-            <div class="filter-content">
-                <!-- Conteúdo da div de filtro -->
-                teste
+            <div>
+                <div class="fixed-filter">
+                    <span class="filter-content">Filters</span>
+                    <div onclick={toggleFilter}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" size="x-small"></lightning-icon>
+                    </div>
+                </div>
+            </div>
+            <div class="filters">
+                <lightning-combobox
+                    name="mostre"
+                    label="Mostre me"
+                    value={value}
+                    options={options}
+                    onchange={handleChange}
+                    id="mostre">
+                </lightning-combobox>
+                <div class="filter-button">
+                    <lightning-button label="Aplicar Filtros" title="Aplicar Filtros" onclick={handleClick}></lightning-button>
+                </div>
             </div>
         </div>
     </div>
