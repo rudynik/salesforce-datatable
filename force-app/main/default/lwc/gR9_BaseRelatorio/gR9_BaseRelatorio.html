@@ -43,7 +43,7 @@
             </div>
         </div>
         <div if:true={isModalOpen} class="modal-filter">
-            <div class="fixed-filter-by">
+            <div class="fixed-filter">
                 <span class="filter-content">Filter By</span>
                 <div onclick={closeModal}>
                     <lightning-icon icon-name="utility:close" alternative-text="close" size="x-small"></lightning-icon>
@@ -66,7 +66,7 @@
                 </lightning-combobox>
                 <lightning-input type="text" onchange={handleInputChange}></lightning-input>
                 <div class="modal-button">
-                    <lightning-button label="Cancel" title="Cancel" onclick={closeModal}></lightning-button>
+                    <lightning-button label="Cancel" title="Cancel" onclick={closeModal} class="cancel-button"></lightning-button>
                     <lightning-button label="Apply" title="Apply" onclick={handleConfirm}></lightning-button>
                 </div>
             </div>

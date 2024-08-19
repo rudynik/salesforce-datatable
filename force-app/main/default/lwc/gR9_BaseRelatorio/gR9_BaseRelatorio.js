@@ -1,6 +1,5 @@
 import { LightningElement, track } from 'lwc';
 
-// Definindo as colunas e os dados de simulação
 const columns = [
     { label: 'Label', fieldName: 'name', sortable: true },
     { label: 'Website', fieldName: 'website', type: 'url', sortable: true },
@@ -62,9 +61,9 @@ export default class GR9_BaseRelatorio extends LightningElement {
             { label: 'greater than', value: '>' },
             { label: 'less or equal', value: '<=' },
             { label: 'greater or equal', value: '>=' },
-            { label: 'contains', value: 'includes' }, // Para usar em string ou array
-            { label: 'does not contain', value: '!includes' }, // Para usar em string ou array com negação
-            { label: 'starts with', value: 'startsWith' } // Para usar em strings
+            { label: 'contains', value: 'includes' },
+            { label: 'does not contain', value: '!includes' },
+            { label: 'starts with', value: 'startsWith' }
         ];
     }
 
@@ -105,7 +104,7 @@ export default class GR9_BaseRelatorio extends LightningElement {
         const filter = {
             field: this.fieldChange,
             operator: this.operatorChange,
-            value: this.inputChange
+            value: this.inputChange 
         }
 
         console.log(JSON.stringify(filter));
