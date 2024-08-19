@@ -4,7 +4,7 @@
             <lightning-icon icon-name="standard:report" alternative-text="report"></lightning-icon>
             <span class="titulo-relatorio">Relatório Contact Report ESG</span>
         </div>
-        <div onclick={toggleFilter}>
+        <div onclick={toggleFilter} class="filterList">
             <lightning-icon icon-name="utility:filterList" alternative-text="filterList" size="small"></lightning-icon>
         </div>
     </div>
@@ -36,8 +36,38 @@
                     onchange={handleChange}
                     id="mostre">
                 </lightning-combobox>
+                <a onclick={openModal}>Add filter</a>
                 <div class="filter-button">
                     <lightning-button label="Aplicar Filtros" title="Aplicar Filtros" onclick={handleClick}></lightning-button>
+                </div>
+            </div>
+        </div>
+        <div if:true={isModalOpen} class="modal-filter">
+            <div class="fixed-filter-by">
+                <span class="filter-content">Filter By</span>
+                <div onclick={closeModal}>
+                    <lightning-icon icon-name="utility:close" alternative-text="close" size="x-small"></lightning-icon>
+                </div>
+            </div>
+            <div>
+                <lightning-combobox
+                    name="field"
+                    label="Field"
+                    options={fieldOptions}
+                    onchange={handleFieldChange}
+                    id="field">
+                </lightning-combobox>
+                <lightning-combobox
+                    name="operator"
+                    label="Operator"
+                    options={operatorOptions}
+                    onchange={handleOperatorChange}
+                    id="operator">
+                </lightning-combobox>
+                <lightning-input type="text" onchange={handleInputChange}></lightning-input>
+                <div class="modal-button">
+                    <lightning-button label="Cancel" title="Cancel" onclick={closeModal}></lightning-button>
+                    <lightning-button label="Apply" title="Apply" onclick={handleConfirm}></lightning-button>
                 </div>
             </div>
         </div>
